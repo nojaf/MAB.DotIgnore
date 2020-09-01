@@ -2,7 +2,6 @@
     <PropertyGroup>
         <TargetFrameworks>netstandard1.3;net4</TargetFrameworks>
         <PackageId>MAB.DotIgnore</PackageId>
-        <PackageLicenseUrl>https://github.com/markashleybell/MAB.DotIgnore/blob/master/LICENSE.md</PackageLicenseUrl>
         <PackageProjectUrl>https://github.com/markashleybell/MAB.DotIgnore</PackageProjectUrl>
         <RepositoryUrl>https://github.com/markashleybell/MAB.DotIgnore.git</RepositoryUrl>
         <Description>Load and parse .gitignore files (or any list of pattern strings using the same pattern syntax) to produce an IgnoreList, which can be used to ignore specific files and folders during (for example) a file copy operation.</Description>
@@ -14,7 +13,7 @@
         <AssemblyOriginatorKeyFile>MAB.DotIgnore.snk</AssemblyOriginatorKeyFile>
         <DelaySign>false</DelaySign>
         <LangVersion>latest</LangVersion>
-        <Version>3.0.0</Version>
+        <PackageLicenseFile>licenses\LICENSE.md</PackageLicenseFile>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard1.3|AnyCPU'">
         <DocumentationFile>bin\Debug\netstandard1.3\MAB.DotIgnore.xml</DocumentationFile>
@@ -42,9 +41,16 @@
         </AssemblyAttribute>
     </ItemGroup>
     <ItemGroup>
+        <None Include="..\LICENSE.md" Pack="true" PackagePath="licenses" />
+    </ItemGroup>
+    <ItemGroup>
         <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.6.3">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net40" Version="1.0.0">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="StyleCop.Analyzers" Version="1.1.0-beta008">
             <PrivateAssets>all</PrivateAssets>

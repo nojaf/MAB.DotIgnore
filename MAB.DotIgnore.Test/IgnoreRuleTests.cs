@@ -11,7 +11,7 @@ namespace MAB.DotIgnore.Tests
 
         [OneTimeSetUp]
         public void OneTimeSetUp() =>
-            _basePath = TestContext.CurrentContext.TestDirec‌​tory + @"\test_content";
+            _basePath = TestContext.CurrentContext.TestDirectory + "/test_content";
 
         [SetUp]
         public void SetUp()
@@ -67,13 +67,6 @@ namespace MAB.DotIgnore.Tests
         }
 
         [Test]
-        public void Windows_Paths_Converted()
-        {
-            var rule = new IgnoreRule("/c/textfiles/test.txt");
-            Assert.IsTrue(rule.IsMatch(@"c:\textfiles\test.txt", true));
-        }
-
-        [Test]
         public void FileInfo_Match()
         {
             var directory = new DirectoryInfo(_basePath);
@@ -86,7 +79,7 @@ namespace MAB.DotIgnore.Tests
         [Test]
         public void DirectoryInfo_Match()
         {
-            var directory = new DirectoryInfo(_basePath + @"\test");
+            var directory = new DirectoryInfo(_basePath + "/test");
 
             var rule = new IgnoreRule("test");
             Assert.IsTrue(rule.IsMatch(directory));
